@@ -1,0 +1,100 @@
+package ejercicio27sept;
+
+import java.util.Scanner;
+
+public class MainCalculadora{
+	
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		Operaciones operar = new Operaciones();
+		
+		float n; float m;
+		String opcion;
+		int calcular=1;
+		float result; int newOper;
+		
+		while (calcular == 1) {
+			System.out.println();	
+			System.out.println("Seleccione la operación que desea realizar:");
+			System.out.println("[+] SUMA");
+			System.out.println("[-] RESTA");
+			System.out.println("[*] MULTIPLICACIÓN");
+			System.out.println("[/] DIVISIÓN");
+			opcion = teclado.next();
+			
+			System.out.println();
+			
+			System.out.println("Introduzca el primer número que quiera operar.");
+			n = teclado.nextFloat();
+			
+			System.out.println("Introduzca el segundo número que quiera operar.");
+			m = teclado.nextFloat();
+			
+			System.out.println();
+			
+			switch(opcion) {
+			
+			case "+":
+				result = operar.sumar(n, m);
+				System.out.println("¿Desea sumar otro número? 1 sí, 0 no");
+				newOper = teclado.nextInt();
+				while (newOper == 1) {
+					System.out.println("Introduzca el nuevo número:");
+					float num3 = teclado.nextFloat();
+					result = result + num3;
+					System.out.println("¿Desea sumar otro número? 1 sí, 0 no");
+					newOper = teclado.nextInt();	
+				}
+				System.out.println("Resultado de la suma = " + result); System.out.println();
+				break;
+				
+			case "-":
+				result = operar.restar(n, m);
+				System.out.println("¿Desea restar otro número? 1 sí, 0 no");
+				newOper = teclado.nextInt();
+				while (newOper == 1) {
+					System.out.println("Introduzca el nuevo número:");
+					float num3 = teclado.nextFloat();
+					result = result - num3;
+					System.out.println("¿Desea restar otro número? 1 sí, 0 no");
+					newOper = teclado.nextInt();	
+				}
+				System.out.println("Resultado de la resta = " + result); System.out.println();
+				break;
+				
+			case "*":
+				result = operar.multiplicar(n, m);
+				System.out.println("¿Desea multiplicar por otro número? 1 sí, 0 no");
+				newOper = teclado.nextInt();
+				while (newOper == 1) {
+					System.out.println("Introduzca el nuevo número:");
+					float num3 = teclado.nextFloat();
+					result = result*num3;
+					System.out.println("¿Desea multiplicar por otro número? 1 sí, 0 no");
+					newOper = teclado.nextInt();	
+				}
+				System.out.println("Resultado de la multiplicación = " + result); System.out.println();
+				break;
+			
+
+			case "/": operar.dividir(n,m); break;
+			
+			}//Fin switch
+			System.out.println();
+			System.out.println("¿Desea realizar otra operación? 1 sí, 0 no");
+			calcular = teclado.nextInt();
+						
+		} //Fin while
+		
+		System.out.println("--------------------------------");
+		System.out.println("Fin de operaciones.");
+		
+		teclado.close();
+		
+	} //Fin main
+	
+	
+
+}//Fin clase MainCalculadora

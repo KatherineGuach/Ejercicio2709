@@ -1,0 +1,43 @@
+package ejercicio27sept;
+
+public class Operaciones implements InterfazCalculadora{
+	
+	public float sumar(float a, float b) {
+		InterfazCalculadora suma = (n,m) -> n + m;		
+		return suma.numeros(a, b);
+	}
+	
+	public float restar(float a, float b) {
+		InterfazCalculadora resta = (n,m) -> n - m;		
+		return resta.numeros(a, b);
+	}
+	
+	public float multiplicar(float a, float b) {
+		InterfazCalculadora multiplica = (n,m) -> n*m;		
+		return multiplica.numeros(a, b);
+	}
+	
+	public float dividir(float a, float b) {
+		InterfazCalculadora divide = (n,m) -> n / m;
+		try {
+			if (b == 0.0) {
+				throw new ArithmeticException();
+			}else {
+				System.out.println("Resultado de la división: " + divide.numeros(a, b));
+			}
+		}catch(ArithmeticException e){
+			System.out.println("No se puede dividir entre 0");
+		}
+		return divide.numeros(a,b);
+		
+	}
+	
+	@Override
+	public float numeros(float n, float m) {
+		// TODO Esbozo de método generado automáticamente
+		return 0;
+	}
+	
+	
+
+}
